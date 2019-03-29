@@ -4,3 +4,7 @@
 官方文档：<br/>
 英文： https://pptr.dev/ <br/>
 中文： https://zhaoqize.github.io/puppeteer-api-zh_CN/
+
+
+项目启动：
+node index.js
