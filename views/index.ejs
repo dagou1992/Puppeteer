@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>node爬虫</title>
+</head>
+<body>
+<ul class="list"></ul>
+<input type="text" class="input_value">
+<span class="search" style="cursor: pointer; color: blue;">Search</span>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('.search').click(() => {
+        $.ajax({
+            type: 'GET',
+            url: '/search',
+            data: {value: $('.input_value').val()},
+            success: res => $('ul').html(res.reduce((total, item) => total + `<li><a target="_blank" href="${item.href}">${item.title}</a></li>`, ''))
+        });
+    });
+</script>
+</html>
